@@ -1,4 +1,4 @@
-From ac7de86bd58c5849c12e2b05e7b7f68704d9093e Mon Sep 17 00:00:00 2001
+From d6a5f9caed0a7d4fcdd4de3a1f62dc495f5245ce Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 10 Oct 2012 19:30:55 +0200
 Subject: [PATCH] Wire everything into Makefile and Documentation/Makefile
@@ -121,7 +121,7 @@ index 267dfe1..6710325 100644
  		$(ASCIIDOC_EXTRA) -agit_version=$(GIT_VERSION) $*.txt
  
 diff --git a/Makefile b/Makefile
-index 8413606..0392782 100644
+index f69979e..075e98c 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -2479,12 +2479,18 @@ man:
@@ -143,7 +143,7 @@ index 8413606..0392782 100644
  XGETTEXT_FLAGS = \
  	--force-po \
  	--add-comments \
-@@ -2796,6 +2802,9 @@ install-info:
+@@ -2797,6 +2803,9 @@ install-info:
  install-pdf:
  	$(MAKE) -C Documentation install-pdf
  

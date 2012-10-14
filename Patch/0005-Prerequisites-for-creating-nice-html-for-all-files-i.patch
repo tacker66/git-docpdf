@@ -1,4 +1,4 @@
-From 2b9538990e30ae0911117c8e3d8b6891c9de31cf Mon Sep 17 00:00:00 2001
+From 6dc82cb620d47d336bf4df18af2f0fb3d75b11c3 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sat, 29 Sep 2012 17:28:54 +0200
 Subject: [PATCH] Prerequisites for creating nice html for all files in
@@ -197,7 +197,7 @@ index 622ee5c..a695f01 100644
  Since Apache is one of those packages people like to compile
  themselves while others prefer the bureaucrat's dream Debian, it is
 diff --git a/Documentation/howto/update-hook-example.txt b/Documentation/howto/update-hook-example.txt
-index b7f8d41..2b472f7 100644
+index b7f8d41..a5193b1 100644
 --- a/Documentation/howto/update-hook-example.txt
 +++ b/Documentation/howto/update-hook-example.txt
 @@ -5,6 +5,10 @@ Message-ID: <7vfypumlu3.fsf@assigned-by-dhcp.cox.net>
@@ -231,12 +231,12 @@ index b7f8d41..2b472f7 100644
 -	then
 -	  grant "Allowing user: '$username' with pattern: '$user_pattern'"
 -	fi
-+	    info "Checking user: '$username' against pattern: '$user_pattern'"
-+	    matchlen=$(expr "$username" : "$user_pattern")
-+	    if test "$matchlen" = "${#username}"
-+	    then
-+	      grant "Allowing user: '$username' with pattern: '$user_pattern'"
-+	    fi
++        info "Checking user: '$username' against pattern: '$user_pattern'"
++        matchlen=$(expr "$username" : "$user_pattern")
++        if test "$matchlen" = "${#username}"
++        then
++          grant "Allowing user: '$username' with pattern: '$user_pattern'"
++        fi
        done
        deny "The user is not in the access list for this branch"
      done
@@ -251,13 +251,13 @@ index b7f8d41..2b472f7 100644
 -	  then
 -	    grant "Allowing group: '$groupname' with pattern: '$group_pattern'"
 -	  fi
-+	    for groupname in $groups; do
-+	      info "Checking group: '$groupname' against pattern: '$group_pattern'"
-+	      matchlen=$(expr "$groupname" : "$group_pattern")
-+	      if test "$matchlen" = "${#groupname}"
-+	      then
-+	        grant "Allowing group: '$groupname' with pattern: '$group_pattern'"
-+	      fi
++        for groupname in $groups; do
++          info "Checking group: '$groupname' against pattern: '$group_pattern'"
++          matchlen=$(expr "$groupname" : "$group_pattern")
++          if test "$matchlen" = "${#groupname}"
++          then
++            grant "Allowing group: '$groupname' with pattern: '$group_pattern'"
++          fi
          done
        done
        deny "None of the user's groups are in the access list for this branch"

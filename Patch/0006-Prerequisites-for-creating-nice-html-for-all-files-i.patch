@@ -1,4 +1,4 @@
-From cd7a26f5e7ba8cc42bf81e1b78f800460510b71f Mon Sep 17 00:00:00 2001
+From b31fc929d8985f96c1fdbb138417d0e728091b34 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sat, 29 Sep 2012 11:00:00 +0200
 Subject: [PATCH] Prerequisites for creating nice html for all files in
