@@ -1,10 +1,10 @@
-From 1f74b80f80f43119a9fd3e14c2ca2131d3b317df Mon Sep 17 00:00:00 2001
+From b2060f5231e7d998ad338c013e0ebcdbf1d43b8d Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 4 Oct 2012 19:11:43 +0200
 Subject: [PATCH] Split over-long synopsis in git-fetch-pack.txt into several
  lines
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
 ---
  Documentation/git-fetch-pack.txt | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)

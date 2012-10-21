@@ -1,4 +1,4 @@
-From 0d54a4a4fd0c3ae57a94c4c7b67f2a3c41bffeb5 Mon Sep 17 00:00:00 2001
+From 9355b90db3bc8110ecd9ff26f0c7d67bc001a321 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sat, 29 Sep 2012 10:00:00 +0200
 Subject: [PATCH] Prerequisites for creating nice html for all files in
@@ -9,7 +9,7 @@ Subject: [PATCH] Prerequisites for creating nice html for all files in
 - add a markup box for definition part in shallow.txt
 - fix table markup in trivial-merge.txt
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
 ---
  Documentation/technical/index-format.txt  |  2 +-
  Documentation/technical/pack-format.txt   |  8 +++----

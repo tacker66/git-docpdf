@@ -1,10 +1,10 @@
-From e3cb6bf98133d84226ce368f4b2b70c4eccd2eae Mon Sep 17 00:00:00 2001
+From 220d751e0c964f1220b4b38fe0f8d4f4d375678f Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 4 Oct 2012 19:11:43 +0200
 Subject: [PATCH] Shorten two over-long lines in git-bisect-lk2009.txt by
  abbreviating some sha1
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
 ---
  Documentation/git-bisect-lk2009.txt | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

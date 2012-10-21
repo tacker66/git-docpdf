@@ -1,10 +1,10 @@
-From c533dcef47ed6bfd5c8d5ddfbd8680d67030d54e Mon Sep 17 00:00:00 2001
+From abc11fdc9288d5b5670a27bc1ab9354b71fbb69b Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Tue, 9 Oct 2012 20:19:34 +0200
 Subject: [PATCH] Change headline of technical/send-pack-pipeline.txt to not
  confuse its content with content from git-send-pack.txt
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
 ---
  Documentation/technical/send-pack-pipeline.txt | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)

@@ -1,4 +1,4 @@
-From 6dc82cb620d47d336bf4df18af2f0fb3d75b11c3 Mon Sep 17 00:00:00 2001
+From 6c54c6aa3b71cc3aa40eaae7daa1ea6beba7d50b Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sat, 29 Sep 2012 17:28:54 +0200
 Subject: [PATCH] Prerequisites for creating nice html for all files in
@@ -11,7 +11,7 @@ Subject: [PATCH] Prerequisites for creating nice html for all files in
 - headline of every howto document starts with "How to ..."
 - add "Content-type: text/asciidoc" in new files (used in howto-index.sh)
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
 ---
  Documentation/howto/maintain-git.txt               |  4 ++
  .../howto/rebase-from-internal-branch.txt          | 11 ++---
