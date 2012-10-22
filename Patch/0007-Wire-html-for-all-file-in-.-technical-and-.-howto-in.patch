@@ -1,8 +1,7 @@
 From 895b5f4b83dcad3e20e5762fc7e6b34e385b8525 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 10 Oct 2012 19:30:55 +0200
-Subject: [PATCH] Wire html for all file in ./technical and ./howto in
- Makefile
+Subject: [PATCH] Wire html for all files in ./technical and ./howto in Makefile
 
 - target "html" creates html for all files in Documentation/howto and Documentation/technical
 
@@ -32,7 +31,7 @@ index 267dfe1..c4e5594 100644
  API_DOCS = $(patsubst %.txt,%,$(filter-out technical/api-index-skel.txt technical/api-index.txt, $(wildcard technical/api-*.txt)))
  SP_ARTICLES += $(API_DOCS)
 +
-+TECH_DOCS += technical/index-format
++TECH_DOCS = technical/index-format
 +TECH_DOCS += technical/pack-format
 +TECH_DOCS += technical/pack-heuristics
 +TECH_DOCS += technical/pack-protocol
@@ -66,4 +65,3 @@ index 267dfe1..c4e5594 100644
  
 -- 
 1.7.11.msysgit.1
-
