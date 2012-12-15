@@ -1,19 +1,19 @@
-From 850301bbd15b933f043cf9997ee6e8c5800bc2eb Mon Sep 17 00:00:00 2001
-From: Thomas Ackermann <th.acker66@arcor.de>
+From b209b48e643f0e2ddd30a5111b7ad07fb6560fac Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
 
 - new target "relnoteshtml" creates html for all release notes
 - new target "fullpdf" creates "git-doc.pdf" and uses targets "html", "relnoteshtml" and "pdf"
 
-Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
 ---
  Documentation/Makefile | 17 +++++++++++++++++
  Makefile               |  9 +++++++++
  2 files changed, 26 insertions(+)
 
 diff --git a/Documentation/Makefile b/Documentation/Makefile
-index c4e5594..d8b2a51 100644
+index 3615504..592e3d6 100644
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
 @@ -15,6 +15,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))
@@ -76,10 +76,10 @@ index c4e5594..d8b2a51 100644
  	sed "s|@@MAN_BASE_URL@@|$(MAN_BASE_URL)|" $< > $@
  
 diff --git a/Makefile b/Makefile
-index f69979e..075e98c 100644
+index 736ecd4..a24732c 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -2479,12 +2479,18 @@ man:
+@@ -2495,12 +2495,18 @@ man:
  html:
  	$(MAKE) -C Documentation html
  
@@ -98,7 +98,7 @@ index f69979e..075e98c 100644
  XGETTEXT_FLAGS = \
  	--force-po \
  	--add-comments \
-@@ -2797,6 +2803,9 @@ install-info:
+@@ -2813,6 +2819,9 @@ install-info:
  install-pdf:
  	$(MAKE) -C Documentation install-pdf
  
@@ -109,5 +109,5 @@ index f69979e..075e98c 100644
  	$(MAKE) -C Documentation quick-install
  
 -- 
-1.7.11.msysgit.1
+1.8.0.msysgit.0
 

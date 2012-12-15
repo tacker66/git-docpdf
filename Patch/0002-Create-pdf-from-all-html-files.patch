@@ -1,4 +1,4 @@
-From 3afec4ac579362d239f462b81b6b604cc4685f2e Mon Sep 17 00:00:00 2001
+From bbb3ad6253955e823d429bf3fbd77cbf1bef4b1b Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Mon, 1 Oct 2012 20:06:48 +0200
 Subject: [PATCH] Create pdf from all html files
@@ -6,7 +6,7 @@ Subject: [PATCH] Create pdf from all html files
 - use wkhtmltopdf ("patched QT" version) to combine all html files into a single pdf file "git-doc.pdf"
 - insert page breaks to separate major sections
 
-Signed-off-by: Thomas Ackermann <th.acker66@arcor.de>
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
 ---
  Documentation/.gitignore      |  1 +
  Documentation/footerend.txt   |  4 ++++
@@ -118,5 +118,5 @@ index 0000000..fdaffd1
 @@ -0,0 +1 @@
 +</p style="page-break-after: always">
 -- 
-1.7.11.msysgit.1
+1.8.0.msysgit.0
 
