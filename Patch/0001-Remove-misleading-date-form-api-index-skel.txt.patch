@@ -1,0 +1,23 @@
+From b0f2d32f52b0d3d1c15275149840a4e6f8cb863b Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker66@arcor.de>
+Date: Sat, 15 Dec 2012 14:54:28 +0100
+Subject: [PATCH] Remove misleading date form api-index-skel.txt
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/technical/api-index-skel.txt | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Documentation/technical/api-index-skel.txt b/Documentation/technical/api-index-skel.txt
+index af7cc2e..730cfac 100644
+--- a/Documentation/technical/api-index-skel.txt
++++ b/Documentation/technical/api-index-skel.txt
+@@ -11,5 +11,3 @@ documents them.
+ ////////////////////////////////////////////////////////////////
+ // table of contents end
+ ////////////////////////////////////////////////////////////////
+-
+-2007-11-24
+-- 
+1.8.0.msysgit.0
+

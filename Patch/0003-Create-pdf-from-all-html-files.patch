@@ -1,4 +1,4 @@
-From bbb3ad6253955e823d429bf3fbd77cbf1bef4b1b Mon Sep 17 00:00:00 2001
+From dcb36ec0800337eedfb6b99baeab83e2044e025c Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Mon, 1 Oct 2012 20:06:48 +0200
 Subject: [PATCH] Create pdf from all html files
