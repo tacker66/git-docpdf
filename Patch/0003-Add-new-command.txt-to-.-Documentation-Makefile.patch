@@ -1,0 +1,25 @@
+From b93042a492bd5fac9424271898b64c68d9b6052d Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Thu, 20 Dec 2012 21:13:24 +0100
+Subject: [PATCH] Add new-command.txt to ./Documentation/Makefile
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/Makefile b/Documentation/Makefile
+index 7df75d0..f3afcb6 100644
+--- a/Documentation/Makefile
++++ b/Documentation/Makefile
+@@ -21,6 +21,7 @@ ARTICLES += git-tools
+ ARTICLES += git-bisect-lk2009
+ # with their own formatting rules.
+ SP_ARTICLES = user-manual
++SP_ARTICLES += howto/new-command
+ SP_ARTICLES += howto/revert-branch-rebase
+ SP_ARTICLES += howto/using-merge-subtree
+ SP_ARTICLES += howto/using-signed-tag-in-pull-request
+-- 
+1.8.0.msysgit.0
+

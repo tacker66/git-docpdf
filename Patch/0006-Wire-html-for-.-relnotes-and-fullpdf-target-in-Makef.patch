@@ -1,4 +1,4 @@
-From c1386f6302068ec923d61739d5288d01c2bd991e Mon Sep 17 00:00:00 2001
+From e62d44336a187d965d9697f1feff0c72ef5dd662 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker66@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
@@ -13,7 +13,7 @@ Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
  2 files changed, 26 insertions(+)
 
 diff --git a/Documentation/Makefile b/Documentation/Makefile
-index 3615504..592e3d6 100644
+index f3afcb6..d7417b8 100644
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
 @@ -15,6 +15,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))

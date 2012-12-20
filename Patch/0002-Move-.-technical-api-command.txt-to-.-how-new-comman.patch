@@ -1,0 +1,18 @@
+From 9c0ce1322923d5cd766f4c9261c90c43eebfbfca Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Thu, 20 Dec 2012 21:11:18 +0100
+Subject: [PATCH] Move ./technical/api-command.txt to ./how/new-command.txt
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/{technical/api-command.txt => howto/new-command.txt} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename Documentation/{technical/api-command.txt => howto/new-command.txt} (100%)
+
+diff --git a/Documentation/technical/api-command.txt b/Documentation/howto/new-command.txt
+similarity index 100%
+rename from Documentation/technical/api-command.txt
+rename to Documentation/howto/new-command.txt
+-- 
+1.8.0.msysgit.0
+

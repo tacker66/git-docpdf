@@ -1,0 +1,31 @@
+From ba2726f13cc9657c622314946bf93ae5050ceab5 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Thu, 20 Dec 2012 21:34:12 +0100
+Subject: [PATCH] Amend ./howto/new-command.txt to be processed correctly by
+ howto-index.sh
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/howto/new-command.txt | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/howto/new-command.txt b/Documentation/howto/new-command.txt
+index d3b9781..36502f6 100644
+--- a/Documentation/howto/new-command.txt
++++ b/Documentation/howto/new-command.txt
+@@ -1,5 +1,10 @@
+-Integrating new subcommands
+-===========================
++From: Eric S. Raymond <esr@thyrsus.com>
++Abstract: This is how-to documentation for people who want to add extension
++ commands to git.  It should be read alongside api-builtin.txt.
++Content-type: text/asciidoc
++
++How to integrate new subcommands
++================================
+ 
+ This is how-to documentation for people who want to add extension
+ commands to git.  It should be read alongside api-builtin.txt.
+-- 
+1.8.0.msysgit.0
+
