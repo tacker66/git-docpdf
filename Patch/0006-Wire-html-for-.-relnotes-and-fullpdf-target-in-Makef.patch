@@ -1,4 +1,4 @@
-From e62d44336a187d965d9697f1feff0c72ef5dd662 Mon Sep 17 00:00:00 2001
+From d8ed318034fdf95ff9ca03edd3d1c789e76daf39 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker66@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
@@ -13,7 +13,7 @@ Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
  2 files changed, 26 insertions(+)
 
 diff --git a/Documentation/Makefile b/Documentation/Makefile
-index f3afcb6..d7417b8 100644
+index a51c00f..7e07b23 100644
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
 @@ -15,6 +15,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))
@@ -26,7 +26,7 @@ index f3afcb6..d7417b8 100644
  ARTICLES = howto-index
  ARTICLES += everyday
  ARTICLES += git-tools
-@@ -178,6 +181,8 @@ all: html man
+@@ -180,6 +183,8 @@ all: html man
  
  html: $(DOC_HTML)
  
@@ -35,7 +35,7 @@ index f3afcb6..d7417b8 100644
  $(DOC_HTML) $(DOC_MAN1) $(DOC_MAN5) $(DOC_MAN7): asciidoc.conf
  
  man: man1 man5 man7
-@@ -189,6 +194,9 @@ info: git.info gitman.info
+@@ -191,6 +196,9 @@ info: git.info gitman.info
  
  pdf: user-manual.pdf
  
@@ -45,7 +45,7 @@ index f3afcb6..d7417b8 100644
  install: install-man
  
  install-man: man
-@@ -213,6 +221,10 @@ install-pdf: pdf
+@@ -215,6 +223,10 @@ install-pdf: pdf
  	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
  	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
  
@@ -56,7 +56,7 @@ index f3afcb6..d7417b8 100644
  install-html: html
  	'$(SHELL_PATH_SQ)' ./install-webdoc.sh $(DESTDIR)$(htmldir)
  
-@@ -256,6 +268,8 @@ clean:
+@@ -258,6 +270,8 @@ clean:
  	$(RM) technical/*.html technical/api-index.txt
  	$(RM) $(cmds_txt) *.made
  	$(RM) manpage-base-url.xsl
@@ -65,7 +65,7 @@ index f3afcb6..d7417b8 100644
  
  $(MAN_HTML): %.html : %.txt
  	$(QUIET_ASCIIDOC)$(RM) $@+ $@ && \
-@@ -263,6 +277,9 @@ $(MAN_HTML): %.html : %.txt
+@@ -265,6 +279,9 @@ $(MAN_HTML): %.html : %.txt
  		$(ASCIIDOC_EXTRA) -agit_version=$(GIT_VERSION) -o $@+ $< && \
  	mv $@+ $@
  

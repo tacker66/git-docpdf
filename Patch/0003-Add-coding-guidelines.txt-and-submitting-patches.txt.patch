@@ -1,0 +1,27 @@
+From a8c6107745fb057b770d68e9c61041634e954f19 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Thu, 27 Dec 2012 14:39:20 +0100
+Subject: [PATCH] Add coding-guidelines.txt and submitting-patches.txt to
+ ./Documentation/Makefile
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/Makefile b/Documentation/Makefile
+index e53d333..a51c00f 100644
+--- a/Documentation/Makefile
++++ b/Documentation/Makefile
+@@ -47,6 +47,8 @@ TECH_DOCS += technical/racy-git
+ TECH_DOCS += technical/send-pack-pipeline
+ TECH_DOCS += technical/shallow
+ TECH_DOCS += technical/trivial-merge
++TECH_DOCS += technical/coding-guidelines
++TECH_DOCS += technical/submitting-patches
+ SP_ARTICLES += $(TECH_DOCS)
+ SP_ARTICLES += technical/api-index
+ 
+-- 
+1.8.0.msysgit.0
+
