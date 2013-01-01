@@ -1,0 +1,25 @@
+From fb7513b7acab0b0277f10a7c938248ae5d0ec569 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Thu, 27 Dec 2012 14:35:16 +0100
+Subject: [PATCH] Move CodingGuidelines to ./techncal/coding-guidelines.txt
+ and SubmittingPatches to ./technical/submitting-patches.txt
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Documentation/{CodingGuidelines => technical/coding-guidelines.txt}   | 0
+ Documentation/{SubmittingPatches => technical/submitting-patches.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ rename Documentation/{CodingGuidelines => technical/coding-guidelines.txt} (100%)
+ rename Documentation/{SubmittingPatches => technical/submitting-patches.txt} (100%)
+
+diff --git a/Documentation/CodingGuidelines b/Documentation/technical/coding-guidelines.txt
+similarity index 100%
+rename from Documentation/CodingGuidelines
+rename to Documentation/technical/coding-guidelines.txt
+diff --git a/Documentation/SubmittingPatches b/Documentation/technical/submitting-patches.txt
+similarity index 100%
+rename from Documentation/SubmittingPatches
+rename to Documentation/technical/submitting-patches.txt
+-- 
+1.8.0.msysgit.0
+

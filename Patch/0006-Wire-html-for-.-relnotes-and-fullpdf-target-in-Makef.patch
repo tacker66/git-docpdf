@@ -1,4 +1,4 @@
-From d8ed318034fdf95ff9ca03edd3d1c789e76daf39 Mon Sep 17 00:00:00 2001
+From 1243aa02ffa79ef7fea38e5e62296b6e94a3684f Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker66@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles

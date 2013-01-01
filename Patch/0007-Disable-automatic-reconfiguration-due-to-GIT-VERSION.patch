@@ -1,0 +1,26 @@
+From 077504d66fd1686621641ea33c64392d8fb94313 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Sat, 29 Sep 2012 10:30:00 +0200
+Subject: [PATCH] Disable automatic reconfiguration due to GIT-VERSION
+
+Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index a24732c..af89560 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2267,7 +2267,7 @@ $(patsubst %.py,%,$(SCRIPT_PYTHON)): % : unimplemented.sh
+ 	mv $@+ $@
+ endif # NO_PYTHON
+ 
+-configure: configure.ac GIT-VERSION-FILE
++configure: configure.ac
+ 	$(QUIET_GEN)$(RM) $@ $<+ && \
+ 	sed -e 's/@@GIT_VERSION@@/$(GIT_VERSION)/g' \
+ 	    $< > $<+ && \
+-- 
+1.8.0.msysgit.0
+

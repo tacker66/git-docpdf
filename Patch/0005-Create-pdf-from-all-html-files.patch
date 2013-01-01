@@ -1,4 +1,4 @@
-From 3b488e937eb783b66becaa8bb20e398f474621ec Mon Sep 17 00:00:00 2001
+From df03e981b23f8e3eb51821e03fc927962c11ede7 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Mon, 1 Oct 2012 20:06:48 +0200
 Subject: [PATCH] Create pdf from all html files
@@ -11,9 +11,9 @@ Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
  Documentation/.gitignore      |  1 +
  Documentation/footerend.txt   |  4 ++++
  Documentation/footerstart.txt |  7 ++++++
- Documentation/makedocpdf.sh   | 53 +++++++++++++++++++++++++++++++++++++++++++
+ Documentation/makedocpdf.sh   | 55 +++++++++++++++++++++++++++++++++++++++++++
  Documentation/pagebreak.txt   |  1 +
- 5 files changed, 66 insertions(+)
+ 5 files changed, 68 insertions(+)
  create mode 100644 Documentation/footerend.txt
  create mode 100644 Documentation/footerstart.txt
  create mode 100755 Documentation/makedocpdf.sh
@@ -53,13 +53,14 @@ index 0000000..a2746ef
 +    <td style="text-align:center">
 diff --git a/Documentation/makedocpdf.sh b/Documentation/makedocpdf.sh
 new file mode 100755
-index 0000000..5f1a2c1
+index 0000000..5f33874
 --- /dev/null
 +++ b/Documentation/makedocpdf.sh
-@@ -0,0 +1,53 @@
+@@ -0,0 +1,55 @@
 +#!/bin/sh
 +
 +rm -f git-doc.pdf
++rm -f git-doc.html
 +
 +cat pagebreak.txt                  >pagebreak.html
 +
@@ -92,13 +93,13 @@ index 0000000..5f1a2c1
 +ls howto/*.html                    >>docfiles.txt
 +
 +ls pagebreak.html                  >>docfiles.txt
-+ls technical/[b-z]*.html           >>docfiles.txt
-+
-+ls pagebreak.html                  >>docfiles.txt
 +ls technical/api-index.html        >>docfiles.txt
 +ls technical/api-[a-h]*.html       >>docfiles.txt
 +ls technical/api-in-*.html         >>docfiles.txt
 +ls technical/api-[j-z]*.html       >>docfiles.txt
++
++ls pagebreak.html                  >>docfiles.txt
++ls technical/[b-z]*.html           >>docfiles.txt
 +
 +ls pagebreak.html                  >>docfiles.txt
 +ls RelNotes/*.html                 >>docfiles.txt
@@ -109,6 +110,7 @@ index 0000000..5f1a2c1
 +cat ../GIT-VERSION-FILE            >>footer.html
 +cat footerend.txt                  >>footer.html
 +
++cat docfiles.txt | xargs cat | cat >git-doc.html
 +cat docfiles.txt | xargs cat | wkhtmltopdf --book --footer-html footer.html --disable-external-links - git-doc.pdf
 diff --git a/Documentation/pagebreak.txt b/Documentation/pagebreak.txt
 new file mode 100644
