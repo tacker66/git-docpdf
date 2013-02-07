@@ -1,8 +1,8 @@
-From fb7513b7acab0b0277f10a7c938248ae5d0ec569 Mon Sep 17 00:00:00 2001
+From b0b12d17020dcefe12e155dfaacae731649d9fa3 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 27 Dec 2012 14:35:16 +0100
-Subject: [PATCH] Move CodingGuidelines to ./techncal/coding-guidelines.txt
- and SubmittingPatches to ./technical/submitting-patches.txt
+Subject: [PATCH] Move CodingGuidelines to ./techncal/coding-guidelines.txt and
+ SubmittingPatches to ./technical/submitting-patches.txt
 
 Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
 ---
@@ -21,5 +21,5 @@ similarity index 100%
 rename from Documentation/SubmittingPatches
 rename to Documentation/technical/submitting-patches.txt
 -- 
-1.8.0.msysgit.0
+1.8.1.msysgit.1
 

@@ -1,4 +1,4 @@
-From 1243aa02ffa79ef7fea38e5e62296b6e94a3684f Mon Sep 17 00:00:00 2001
+From 3f6d42aaad73cfaa6895a5538fe6643358040ac2 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker66@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
@@ -8,12 +8,12 @@ Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
 
 Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
 ---
- Documentation/Makefile | 17 +++++++++++++++++
+ Documentation/Makefile | 19 +++++++++++++++++++
  Makefile               |  9 +++++++++
- 2 files changed, 26 insertions(+)
+ 2 files changed, 28 insertions(+)
 
 diff --git a/Documentation/Makefile b/Documentation/Makefile
-index a51c00f..7e07b23 100644
+index 4bec92b..e2a8283 100644
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
 @@ -15,6 +15,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))
@@ -25,17 +25,19 @@ index a51c00f..7e07b23 100644
 +
  ARTICLES = howto-index
  ARTICLES += everyday
- ARTICLES += git-tools
-@@ -180,6 +183,8 @@ all: html man
+ ARTICLES += readme
+@@ -182,6 +185,10 @@ all: html man
  
  html: $(DOC_HTML)
  
 +relnoteshtml: $(RELNOTES_HTML)
 +
- $(DOC_HTML) $(DOC_MAN1) $(DOC_MAN5) $(DOC_MAN7): asciidoc.conf
- 
++$(DOC_HTML) $(DOC_MAN1) $(DOC_MAN5) $(DOC_MAN7): asciidoc.conf
++
  man: man1 man5 man7
-@@ -191,6 +196,9 @@ info: git.info gitman.info
+ man1: $(DOC_MAN1)
+ man5: $(DOC_MAN5)
+@@ -191,6 +198,9 @@ info: git.info gitman.info
  
  pdf: user-manual.pdf
  
@@ -45,7 +47,7 @@ index a51c00f..7e07b23 100644
  install: install-man
  
  install-man: man
-@@ -215,6 +223,10 @@ install-pdf: pdf
+@@ -215,6 +225,10 @@ install-pdf: pdf
  	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
  	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
  
@@ -56,16 +58,16 @@ index a51c00f..7e07b23 100644
  install-html: html
  	'$(SHELL_PATH_SQ)' ./install-webdoc.sh $(DESTDIR)$(htmldir)
  
-@@ -258,6 +270,8 @@ clean:
+@@ -258,6 +272,8 @@ clean:
  	$(RM) technical/*.html technical/api-index.txt
  	$(RM) $(cmds_txt) *.made
  	$(RM) manpage-base-url.xsl
 +	$(RM) docfiles.txt
 +	$(RM) RelNotes/*.html
  
- $(MAN_HTML): %.html : %.txt
+ $(MAN_HTML): %.html : %.txt asciidoc.conf
  	$(QUIET_ASCIIDOC)$(RM) $@+ $@ && \
-@@ -265,6 +279,9 @@ $(MAN_HTML): %.html : %.txt
+@@ -265,6 +281,9 @@ $(MAN_HTML): %.html : %.txt asciidoc.conf
  		$(ASCIIDOC_EXTRA) -agit_version=$(GIT_VERSION) -o $@+ $< && \
  	mv $@+ $@
  
@@ -76,10 +78,10 @@ index a51c00f..7e07b23 100644
  	sed "s|@@MAN_BASE_URL@@|$(MAN_BASE_URL)|" $< > $@
  
 diff --git a/Makefile b/Makefile
-index 736ecd4..a24732c 100644
+index 5a2e02d..0f1261b 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -2495,12 +2495,18 @@ man:
+@@ -2020,12 +2020,18 @@ man:
  html:
  	$(MAKE) -C Documentation html
  
@@ -98,7 +100,7 @@ index 736ecd4..a24732c 100644
  XGETTEXT_FLAGS = \
  	--force-po \
  	--add-comments \
-@@ -2813,6 +2819,9 @@ install-info:
+@@ -2338,6 +2344,9 @@ install-info:
  install-pdf:
  	$(MAKE) -C Documentation install-pdf
  
@@ -109,5 +111,5 @@ index 736ecd4..a24732c 100644
  	$(MAKE) -C Documentation quick-install
  
 -- 
-1.8.0.msysgit.0
+1.8.1.msysgit.1
 

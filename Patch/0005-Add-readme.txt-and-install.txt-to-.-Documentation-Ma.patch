@@ -1,0 +1,25 @@
+From 92e3afba92e4c58a7148ecfe8f3a5f079dacd85c Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Wed, 6 Feb 2013 19:44:50 +0100
+Subject: [PATCH] Add readme.txt and install.txt to ./Documentation/Makefile
+
+---
+ Documentation/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Documentation/Makefile b/Documentation/Makefile
+index c2a677f..4bec92b 100644
+--- a/Documentation/Makefile
++++ b/Documentation/Makefile
+@@ -17,6 +17,8 @@ DOC_HTML=$(MAN_HTML)
+ 
+ ARTICLES = howto-index
+ ARTICLES += everyday
++ARTICLES += readme
++ARTICLES += install
+ ARTICLES += git-tools
+ ARTICLES += git-bisect-lk2009
+ # with their own formatting rules.
+-- 
+1.8.1.msysgit.1
+

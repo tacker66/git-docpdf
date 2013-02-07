@@ -1,4 +1,4 @@
-From 077504d66fd1686621641ea33c64392d8fb94313 Mon Sep 17 00:00:00 2001
+From b2685f144b88efa7b263bd3b1810dc001280478c Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Sat, 29 Sep 2012 10:30:00 +0200
 Subject: [PATCH] Disable automatic reconfiguration due to GIT-VERSION
@@ -9,10 +9,10 @@ Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index a24732c..af89560 100644
+index 0f1261b..63e5628 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -2267,7 +2267,7 @@ $(patsubst %.py,%,$(SCRIPT_PYTHON)): % : unimplemented.sh
+@@ -1786,7 +1786,7 @@ $(patsubst %.py,%,$(SCRIPT_PYTHON)): % : unimplemented.sh
  	mv $@+ $@
  endif # NO_PYTHON
  
@@ -22,5 +22,5 @@ index a24732c..af89560 100644
  	sed -e 's/@@GIT_VERSION@@/$(GIT_VERSION)/g' \
  	    $< > $<+ && \
 -- 
-1.8.0.msysgit.0
+1.8.1.msysgit.1
 

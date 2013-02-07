@@ -1,0 +1,24 @@
+From e310ae4c75634ead60710edac350739493b065e2 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Wed, 6 Feb 2013 19:41:32 +0100
+Subject: [PATCH] Move README to ./Documentation/readme.txt and INSTALL
+ ./Documentation/install.txt
+
+---
+ INSTALL => Documentation/install.txt | 0
+ README => Documentation/readme.txt   | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ rename INSTALL => Documentation/install.txt (100%)
+ rename README => Documentation/readme.txt (100%)
+
+diff --git a/INSTALL b/Documentation/install.txt
+similarity index 100%
+rename from INSTALL
+rename to Documentation/install.txt
+diff --git a/README b/Documentation/readme.txt
+similarity index 100%
+rename from README
+rename to Documentation/readme.txt
+-- 
+1.8.1.msysgit.1
+

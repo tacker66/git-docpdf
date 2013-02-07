@@ -1,25 +1,24 @@
-From 6e9915615fd62d25f0d222d6db5e4dc50749c24f Mon Sep 17 00:00:00 2001
+From 5bbf014bac9796688709dcc68aace11793b56b1d Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 27 Dec 2012 14:58:47 +0100
 Subject: [PATCH] Convert coding-guideline.txt and submitting-patches.txt to
  asciidoc
 
-Signed-off-by: Thomas Ackermann <th.acker@arcor.de>
 ---
- Documentation/technical/coding-guidelines.txt  | 175 ++++++++++++++-----------
- Documentation/technical/submitting-patches.txt | 144 ++++++++++----------
- 2 files changed, 174 insertions(+), 145 deletions(-)
+ Documentation/technical/coding-guidelines.txt  | 173 ++++++++++++++-----------
+ Documentation/technical/submitting-patches.txt |  20 +--
+ 2 files changed, 108 insertions(+), 85 deletions(-)
 
 diff --git a/Documentation/technical/coding-guidelines.txt b/Documentation/technical/coding-guidelines.txt
-index 69f7e9b..406ded8 100644
+index 1d7de5f..95866de 100644
 --- a/Documentation/technical/coding-guidelines.txt
 +++ b/Documentation/technical/coding-guidelines.txt
 @@ -1,23 +1,25 @@
-+Coding guidelines
++﻿Coding guidelines
 +=================
 +
  Like other projects, we also have some guidelines to keep to the
- code.  For git in general, three rough rules are:
+ code.  For Git in general, three rough rules are:
  
 - - Most importantly, we never say "It's in POSIX; we'll happily
 +- Most importantly, we never say "It's in POSIX; we'll happily
@@ -47,7 +46,7 @@ index 69f7e9b..406ded8 100644
  
  As for more concrete guidelines, just imitate the existing code
  (this is a good guideline, no matter which project you are
-@@ -30,173 +32,183 @@ uses (even if it doesn't match the overall style of existing code).
+@@ -30,139 +32,143 @@ uses (even if it doesn't match the overall style of existing code).
  But if you must have a list of rules, here they are.
  
  For shell scripts specifically (not exhaustive):
@@ -166,8 +165,7 @@ index 69f7e9b..406ded8 100644
 - - We try to keep to at most 80 characters per line.
 +- We try to keep to at most 80 characters per line.
  
-- - We try to support a wide range of C compilers to compile git with,
-+- We try to support a wide range of C compilers to compile git with,
+  - We try to support a wide range of C compilers to compile Git with,
     including old ones. That means that you should not use C99
     initializers, even if a lot of compilers grok it.
  
@@ -246,15 +244,11 @@ index 69f7e9b..406ded8 100644
 - - If you are planning a new command, consider writing it in shell
 +- If you are planning a new command, consider writing it in shell
     or perl first, so that changes in semantics can be easily
-    changed and discussed.  Many git commands started out like
+    changed and discussed.  Many Git commands started out like
     that, and a few are still scripts.
- 
-- - Avoid introducing a new dependency into git. This means you
-+- Avoid introducing a new dependency into git. This means you
-    usually should stay away from scripting languages not already
-    used in the git core command set (unless your command is clearly
+@@ -173,30 +179,36 @@ For C programs:
     separate from it, such as an importer to convert random-scm-X
-    repositories to git).
+    repositories to Git).
  
 - - When we pass <string, length> pair to functions, we should try to
 +- When we pass <string, length> pair to functions, we should try to
@@ -318,7 +312,7 @@ index 69f7e9b..406ded8 100644
     [(<rev>|<range>)...]
     (Any number of either <rev> or <range>.  Parens are needed to make
     it clear that "..." pertains to both <rev> and <range>.)
-@@ -223,10 +239,13 @@ Writing Documentation:
+@@ -223,15 +239,18 @@ Writing Documentation:
     git remote set-head <name> (-a | -d | <branch>)
     (One and only one of "-a", "-d" or "<branch>" _must_ (no square
     brackets) be provided.)
@@ -333,183 +327,51 @@ index 69f7e9b..406ded8 100644
     (optionally) be specified only when one or more of the letters is
     also provided.
 +...................
+ 
+-  A note on notation:
++A note on notation:
+    Use 'git' (all lowercase) when talking about commands i.e. something
+    the user would type into a shell and use 'Git' (uppercase first letter)
+    when talking about the version control system and its properties.
 diff --git a/Documentation/technical/submitting-patches.txt b/Documentation/technical/submitting-patches.txt
-index 75935d5..925b79e 100644
+index d0a4733..bec0311 100644
 --- a/Documentation/technical/submitting-patches.txt
 +++ b/Documentation/technical/submitting-patches.txt
-@@ -1,69 +1,75 @@
-+Submitting Patches
+@@ -1,3 +1,6 @@
++﻿Submitting Patches
 +==================
 +
- Checklist (and a short version for the impatient):
+ Here are some guidelines for people who want to contribute their code
+ to this software.
  
--	Commits:
--
--	- make commits of logical units
--	- check for unnecessary whitespace with "git diff --check"
--	  before committing
--	- do not check in commented out code or unneeded files
--	- the first line of the commit message should be a short
--	  description (50 characters is the soft limit, see DISCUSSION
--	  in git-commit(1)), and should skip the full stop
--	- it is also conventional in most cases to prefix the
--	  first line with "area: " where the area is a filename
--	  or identifier for the general area of the code being
--	  modified, e.g.
--	  . archive: ustar header checksum is computed unsigned
--	  . git-cherry-pick.txt: clarify the use of revision range notation
--	  (if in doubt which identifier to use, run "git log --no-merges"
--	  on the files you are modifying to see the current conventions)
--	- the body should provide a meaningful commit message, which:
--	  . explains the problem the change tries to solve, iow, what
--	    is wrong with the current code without the change.
--	  . justifies the way the change solves the problem, iow, why
--	    the result with the change is better.
--	  . alternate solutions considered but discarded, if any.
--	- describe changes in imperative mood, e.g. "make xyzzy do frotz"
--	  instead of "[This patch] makes xyzzy do frotz" or "[I] changed
--	  xyzzy to do frotz", as if you are giving orders to the codebase
--	  to change its behaviour.
--	- try to make sure your explanation can be understood without
--	  external resources. Instead of giving a URL to a mailing list
--	  archive, summarize the relevant points of the discussion.
--	- add a "Signed-off-by: Your Name <you@example.com>" line to the
--	  commit message (or just use the option "-s" when committing)
--	  to confirm that you agree to the Developer's Certificate of Origin
--	- make sure that you have tests for the bug you are fixing
--	- make sure that the test suite passes after your commit
--
--	Patch:
--
--	- use "git format-patch -M" to create the patch
--	- do not PGP sign your patch
--	- do not attach your patch, but read in the mail
--	  body, unless you cannot teach your mailer to
--	  leave the formatting of the patch alone.
--	- be careful doing cut & paste into your mailer, not to
--	  corrupt whitespaces.
--	- provide additional information (which is unsuitable for
--	  the commit message) between the "---" and the diffstat
--	- if you change, add, or remove a command line option or
--	  make some other user interface change, the associated
--	  documentation should be updated as well.
--	- if your name is not writable in ASCII, make sure that
--	  you send off a message in the correct encoding.
--	- send the patch to the list (git@vger.kernel.org) and the
--	  maintainer (gitster@pobox.com) if (and only if) the patch
--	  is ready for inclusion. If you use git-send-email(1),
--	  please test it first by sending email to yourself.
--	- see below for instructions specific to your mailer
-+Commits:
-+--------
-+
-+- make commits of logical units
-+- check for unnecessary whitespace with "git diff --check"
-+  before committing
-+- do not check in commented out code or unneeded files
-+- the first line of the commit message should be a short
-+  description (50 characters is the soft limit, see DISCUSSION
-+  in git-commit(1)), and should skip the full stop
-+- it is also conventional in most cases to prefix the
-+  first line with "area: " where the area is a filename
-+  or identifier for the general area of the code being
-+  modified, e.g.
-+  * archive: ustar header checksum is computed unsigned
-+  * git-cherry-pick.txt: clarify the use of revision range notation
-+  (if in doubt which identifier to use, run "git log --no-merges"
-+  on the files you are modifying to see the current conventions)
-+- the body should provide a meaningful commit message, which:
-+  * explains the problem the change tries to solve, iow, what
-+	is wrong with the current code without the change.
-+  * justifies the way the change solves the problem, iow, why
-+	the result with the change is better.
-+  * alternate solutions considered but discarded, if any.
-+- describe changes in imperative mood, e.g. "make xyzzy do frotz"
-+  instead of "[This patch] makes xyzzy do frotz" or "[I] changed
-+  xyzzy to do frotz", as if you are giving orders to the codebase
-+  to change its behaviour.
-+- try to make sure your explanation can be understood without
-+  external resources. Instead of giving a URL to a mailing list
-+  archive, summarize the relevant points of the discussion.
-+- add a `Signed-off-by: Your Name <you@example.com>` line to the
-+  commit message (or just use the option "-s" when committing)
-+  to confirm that you agree to the Developer's Certificate of Origin
-+- make sure that you have tests for the bug you are fixing
-+- make sure that the test suite passes after your commit
-+
-+Patch:
-+------
-+
-+- use "git format-patch -M" to create the patch
-+- do not PGP sign your patch
-+- do not attach your patch, but read in the mail
-+  body, unless you cannot teach your mailer to
-+  leave the formatting of the patch alone.
-+- be careful doing cut & paste into your mailer, not to
-+  corrupt whitespaces.
-+- provide additional information (which is unsuitable for
-+  the commit message) between the "---" and the diffstat
-+- if you change, add, or remove a command line option or
-+  make some other user interface change, the associated
-+  documentation should be updated as well.
-+- if your name is not writable in ASCII, make sure that
-+  you send off a message in the correct encoding.
-+- send the patch to the list (git@vger.kernel.org) and the
-+  maintainer (gitster@pobox.com) if (and only if) the patch
-+  is ready for inclusion. If you use git-send-email(1),
-+  please test it first by sending email to yourself.
-+- see below for instructions specific to your mailer
- 
- Long version:
-+-------------
- 
- I started reading over the SubmittingPatches document for Linux
- kernel, primarily because I wanted to have a document similar to
- it for the core GIT to make sure people understand what they are
--doing when they write "Signed-off-by" line.
-+doing when they write `Signed-off-by` line.
- 
- But the patch submission requirements are a lot more relaxed
- here on the technical/contents front, because the core GIT is
-@@ -285,7 +291,7 @@ If you like, you can put extra tags at the end:
- You can also create your own tag or use one that's in common usage
- such as "Thanks-to:", "Based-on-patch-by:", or "Mentored-by:".
- 
--------------------------------------------------
-+..................................
- An ideal patch flow
- 
- Here is an ideal patch flow for this project the current maintainer
-@@ -319,8 +325,8 @@ In any time between the (2)-(3) cycle, the maintainer may pick it up
- from the list and queue it to 'pu', in order to make it easier for
+@@ -327,7 +330,6 @@ from the list and queue it to 'pu', in order to make it easier for
  people play with it without having to pick up and apply the patch to
  their trees themselves.
-+..................................
  
 -------------------------------------------------
  Know the status of your patch after submission
  
  * You can use Git itself to find out when your patch is merged in
-@@ -334,8 +340,8 @@ Know the status of your patch after submission
+@@ -341,8 +343,8 @@ Know the status of your patch after submission
    entitled "What's cooking in git.git" and "What's in git.git" giving
    the status of various proposed changes.
  
 -------------------------------------------------
  MUA specific hints
-+~~~~~~~~~~~~~~~~~~
++------------------
  
  Some of patches I receive or pick up from the list share common
  patterns of breakage.  Please make sure your MUA is set up
-@@ -356,7 +362,7 @@ commit message.
+@@ -363,7 +365,7 @@ commit message.
  
  
  Pine
 -----
-+^^^^
++~~~~
  
  (Johannes Schindelin)
  
-@@ -364,14 +370,14 @@ I don't know how many people still use pine, but for those poor
+@@ -371,14 +373,14 @@ I don't know how many people still use pine, but for those poor
  souls it may be good to mention that the quell-flowed-text is
  needed for recent versions.
  
@@ -526,16 +388,7 @@ index 75935d5..925b79e 100644
  diff-tree 8326dd8350be64ac7fc805f6563a1d61ad10d32c (from e886a61f76edf5410573e92e38ce22974f9c40f1)
  Author: Linus Torvalds <torvalds@g5.osdl.org>
  Date:   Mon Aug 15 17:23:51 2005 -0700
-@@ -381,6 +387,8 @@ Date:   Mon Aug 15 17:23:51 2005 -0700
-     There's no excuse for unconditionally removing whitespace from
-     the pico buffers on close.
- 
-+--------------------------------------
-+
- diff --git a/pico/pico.c b/pico/pico.c
- --- a/pico/pico.c
- +++ b/pico/pico.c
-@@ -393,12 +401,14 @@ diff --git a/pico/pico.c b/pico/pico.c
+@@ -400,12 +402,14 @@ diff --git a/pico/pico.c b/pico/pico.c
  +#endif
  		c |= COMP_EXIT;
  		break;
@@ -551,21 +404,21 @@ index 75935d5..925b79e 100644
  
  Ah, it looks like a recent version changed the default behavior to do the
  right thing, and inverted the sense of the configuration option. (Either
-@@ -409,12 +419,12 @@ it.
+@@ -416,12 +420,12 @@ it.
  
  
  Thunderbird, KMail, GMail
 --------------------------
-+^^^^^^^^^^^^^^^^^^^^^^^^^
++~~~~~~~~~~~~~~~~~~~~~~~~~
  
  See the MUA-SPECIFIC HINTS section of git-format-patch(1).
  
  Gnus
 -----
-+^^^^
++~~~~
  
  '|' in the *Summary* buffer can be used to pipe the current
  message to an external program, and this is a handy way to drive
 -- 
-1.8.0.msysgit.0
+1.8.1.msysgit.1
 
