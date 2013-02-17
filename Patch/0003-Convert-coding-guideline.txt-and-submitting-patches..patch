@@ -1,19 +1,19 @@
-From 5bbf014bac9796688709dcc68aace11793b56b1d Mon Sep 17 00:00:00 2001
+From c5f03dceca21e2c555d03ef6b3244a28e92682be Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 27 Dec 2012 14:58:47 +0100
 Subject: [PATCH] Convert coding-guideline.txt and submitting-patches.txt to
  asciidoc
 
 ---
- Documentation/technical/coding-guidelines.txt  | 173 ++++++++++++++-----------
+ Documentation/technical/coding-guidelines.txt  | 166 ++++++++++++++-----------
  Documentation/technical/submitting-patches.txt |  20 +--
- 2 files changed, 108 insertions(+), 85 deletions(-)
+ 2 files changed, 105 insertions(+), 81 deletions(-)
 
 diff --git a/Documentation/technical/coding-guidelines.txt b/Documentation/technical/coding-guidelines.txt
-index 1d7de5f..95866de 100644
+index b1bfff6..51308af 100644
 --- a/Documentation/technical/coding-guidelines.txt
 +++ b/Documentation/technical/coding-guidelines.txt
-@@ -1,23 +1,25 @@
+@@ -1,14 +1,17 @@
 +﻿Coding guidelines
 +=================
 +
@@ -34,19 +34,7 @@ index 1d7de5f..95866de 100644
     this is not in POSIX, it (is so convenient | makes the code
     much more readable | has other good characteristics) and
     practically all the platforms we care about support it, so
-    let's use it".
- 
--   Again, we live in the real world, and it is sometimes a
--   judgement call, the decision based more on real world
--   constraints people face than what the paper standard says.
--
-+Again, we live in the real world, and it is sometimes a
-+judgement call, the decision based more on real world
-+constraints people face than what the paper standard says.
- 
- As for more concrete guidelines, just imitate the existing code
- (this is a good guideline, no matter which project you are
-@@ -30,139 +32,143 @@ uses (even if it doesn't match the overall style of existing code).
+@@ -31,139 +34,143 @@ uses (even if it doesn't match the overall style of existing code).
  But if you must have a list of rules, here they are.
  
  For shell scripts specifically (not exhaustive):
@@ -172,16 +160,16 @@ index 1d7de5f..95866de 100644
 - - Variables have to be declared at the beginning of the block.
 -
 - - NULL pointers shall be written as NULL, not as 0.
--
++- Variables have to be declared at the beginning of the block.
+ 
 - - When declaring pointers, the star sides with the variable
 -   name, i.e. "char *string", not "char* string" or
 -   "char * string".  This makes it easier to understand code
 -   like "char *string, c;".
-+- Variables have to be declared at the beginning of the block.
- 
-- - We avoid using braces unnecessarily.  I.e.
 +- NULL pointers shall be written as NULL, not as 0.
  
+- - We avoid using braces unnecessarily.  I.e.
+-
 -	if (bla) {
 -		x = 1;
 -	}
@@ -246,7 +234,7 @@ index 1d7de5f..95866de 100644
     or perl first, so that changes in semantics can be easily
     changed and discussed.  Many Git commands started out like
     that, and a few are still scripts.
-@@ -173,30 +179,36 @@ For C programs:
+@@ -174,10 +181,10 @@ For C programs:
     separate from it, such as an importer to convert random-scm-X
     repositories to Git).
  
@@ -257,6 +245,10 @@ index 1d7de5f..95866de 100644
 - - Use Git's gettext wrappers to make the user interface
 +- Use Git's gettext wrappers to make the user interface
     translatable. See "Marking strings for translation" in po/README.
+ 
+ For Perl programs:
+@@ -236,23 +243,29 @@ For Python scripts:
+    been supported since version 2.6.0.
  
  Writing Documentation:
 +----------------------
@@ -293,7 +285,7 @@ index 1d7de5f..95866de 100644
     [<extra>]
     (Zero or one <extra>.)
  
-@@ -207,12 +219,16 @@ Writing Documentation:
+@@ -263,12 +276,16 @@ Writing Documentation:
     [<patch>...]
     (Zero or more of <patch>.  Note that the dots are inside, not
     outside the brackets.)
@@ -312,7 +304,7 @@ index 1d7de5f..95866de 100644
     [(<rev>|<range>)...]
     (Any number of either <rev> or <range>.  Parens are needed to make
     it clear that "..." pertains to both <rev> and <range>.)
-@@ -223,15 +239,18 @@ Writing Documentation:
+@@ -279,15 +296,18 @@ Writing Documentation:
     git remote set-head <name> (-a | -d | <branch>)
     (One and only one of "-a", "-d" or "<branch>" _must_ (no square
     brackets) be provided.)

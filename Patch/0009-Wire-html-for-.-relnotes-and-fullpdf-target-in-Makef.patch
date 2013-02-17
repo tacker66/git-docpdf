@@ -1,0 +1,112 @@
+From bde20bbe0f7f6bf0759f9ae1d16b1d21a35df58f Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker66@arcor.de>
+Date: Sun, 21 Oct 2012 19:39:00 +0200
+Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
+
+- new target "relnoteshtml" creates html for all release notes
+- new target "fullpdf" creates "git-doc.pdf" and uses targets "html", "relnoteshtml" and "pdf"
+---
+ Documentation/Makefile | 18 ++++++++++++++++++
+ Makefile               |  9 +++++++++
+ 2 files changed, 27 insertions(+)
+
+diff --git a/Documentation/Makefile b/Documentation/Makefile
+index e1073c2..d6fe402 100644
+--- a/Documentation/Makefile
++++ b/Documentation/Makefile
+@@ -37,6 +37,9 @@ MAN_HTML=$(patsubst %.txt,%.html,$(MAN_TXT))
+ OBSOLETE_HTML = git-remote-helpers.html
+ DOC_HTML=$(MAN_HTML) $(OBSOLETE_HTML)
+ 
++RELNOTES_TXT = $(wildcard RelNotes/*.txt)
++RELNOTES_HTML= $(patsubst %.txt,%.html,$(RELNOTES_TXT))
++
+ ARTICLES = howto-index
+ ARTICLES += everyday
+ ARTICLES += readme
+@@ -205,6 +208,10 @@ all: html man
+ 
+ html: $(DOC_HTML)
+ 
++relnoteshtml: $(RELNOTES_HTML)
++
++$(DOC_HTML) $(DOC_MAN1) $(DOC_MAN5) $(DOC_MAN7): asciidoc.conf
++
+ man: man1 man5 man7
+ man1: $(DOC_MAN1)
+ man5: $(DOC_MAN5)
+@@ -214,6 +221,9 @@ info: git.info gitman.info
+ 
+ pdf: user-manual.pdf
+ 
++fullpdf: pdf relnoteshtml html
++	./makedocpdf.sh
++
+ install: install-man
+ 
+ install-man: man
+@@ -238,6 +248,10 @@ install-pdf: pdf
+ 	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
+ 	$(INSTALL) -m 644 user-manual.pdf $(DESTDIR)$(pdfdir)
+ 
++install-fullpdf: fullpdf install-pdf
++	$(INSTALL) -d -m 755 $(DESTDIR)$(pdfdir)
++	$(INSTALL) -m 644 git-doc.pdf $(DESTDIR)$(pdfdir)
++
+ install-html: html
+ 	'$(SHELL_PATH_SQ)' ./install-webdoc.sh $(DESTDIR)$(htmldir)
+ 
+@@ -299,6 +313,8 @@ clean:
+ 	$(RM) technical/*.html technical/api-index.txt
+ 	$(RM) $(cmds_txt) $(mergetools_txt) *.made
+ 	$(RM) manpage-base-url.xsl
++	$(RM) docfiles.txt
++	$(RM) RelNotes/*.html
+ 
+ $(MAN_HTML): %.html : %.txt asciidoc.conf
+ 	$(QUIET_ASCIIDOC)$(RM) $@+ $@ && \
+@@ -311,6 +327,8 @@ $(OBSOLETE_HTML): %.html : %.txto asciidoc.conf
+ 	$(ASCIIDOC) -b xhtml11 -f asciidoc.conf \
+ 		$(ASCIIDOC_EXTRA) -agit_version=$(GIT_VERSION) -o $@+ $< && \
+ 	mv $@+ $@
++$(RELNOTES_HTML): %.html : %.txt
++	$(QUIET_ASCIIDOC)$(ASCIIDOC) $(ASCIIDOC_EXTRA) -b xhtml11 $*.txt
+ 
+ manpage-base-url.xsl: manpage-base-url.xsl.in
+ 	sed "s|@@MAN_BASE_URL@@|$(MAN_BASE_URL)|" $< > $@
+diff --git a/Makefile b/Makefile
+index ba8e243..146eaaf 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2055,12 +2055,18 @@ man:
+ html:
+ 	$(MAKE) -C Documentation html
+ 
++relnoteshtml:
++	$(MAKE) -C Documentation relnoteshtml
++
+ info:
+ 	$(MAKE) -C Documentation info
+ 
+ pdf:
+ 	$(MAKE) -C Documentation pdf
+ 
++fullpdf:
++	$(MAKE) -C Documentation fullpdf
++
+ XGETTEXT_FLAGS = \
+ 	--force-po \
+ 	--add-comments \
+@@ -2373,6 +2379,9 @@ install-info:
+ install-pdf:
+ 	$(MAKE) -C Documentation install-pdf
+ 
++install-fullpdf:
++	$(MAKE) -C Documentation install-fullpdf
++
+ quick-install-doc:
+ 	$(MAKE) -C Documentation quick-install
+ 
+-- 
+1.8.1.msysgit.1
+

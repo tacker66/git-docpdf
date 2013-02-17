@@ -1,4 +1,4 @@
-From 92e3afba92e4c58a7148ecfe8f3a5f079dacd85c Mon Sep 17 00:00:00 2001
+From 085277174edbabc4ea00319cfb5692fc7ae09ab6 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 6 Feb 2013 19:44:50 +0100
 Subject: [PATCH] Add readme.txt and install.txt to ./Documentation/Makefile
@@ -8,10 +8,10 @@ Subject: [PATCH] Add readme.txt and install.txt to ./Documentation/Makefile
  1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/Makefile b/Documentation/Makefile
-index c2a677f..4bec92b 100644
+index e7375ce..7dc312b 100644
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
-@@ -17,6 +17,8 @@ DOC_HTML=$(MAN_HTML)
+@@ -39,6 +39,8 @@ DOC_HTML=$(MAN_HTML) $(OBSOLETE_HTML)
  
  ARTICLES = howto-index
  ARTICLES += everyday

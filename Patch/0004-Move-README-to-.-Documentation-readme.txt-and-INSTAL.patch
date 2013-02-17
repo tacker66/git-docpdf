@@ -1,4 +1,4 @@
-From e310ae4c75634ead60710edac350739493b065e2 Mon Sep 17 00:00:00 2001
+From 32d65b46e086df69b5c0c518f3fc6f641e011caa Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 6 Feb 2013 19:41:32 +0100
 Subject: [PATCH] Move README to ./Documentation/readme.txt and INSTALL
