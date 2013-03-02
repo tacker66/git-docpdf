@@ -1,4 +1,4 @@
-From 1effba30c1e4e6d07035b124f237cc86cd36028d Mon Sep 17 00:00:00 2001
+From 94b5bd904ebd5602dac82a799b748cdec519e49e Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 13 Feb 2013 09:55:32 +0100
 Subject: [PATCH] Add http-protcol.txt

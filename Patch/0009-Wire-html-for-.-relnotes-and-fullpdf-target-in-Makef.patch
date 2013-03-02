@@ -1,4 +1,4 @@
-From bde20bbe0f7f6bf0759f9ae1d16b1d21a35df58f Mon Sep 17 00:00:00 2001
+From bd277d105ea09fec223d224f709e8ff4e5130005 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker66@arcor.de>
 Date: Sun, 21 Oct 2012 19:39:00 +0200
 Subject: [PATCH] Wire html for ./relnotes and fullpdf target in Makefiles
@@ -75,10 +75,10 @@ index e1073c2..d6fe402 100644
  manpage-base-url.xsl: manpage-base-url.xsl.in
  	sed "s|@@MAN_BASE_URL@@|$(MAN_BASE_URL)|" $< > $@
 diff --git a/Makefile b/Makefile
-index ba8e243..146eaaf 100644
+index 26d3332..b2689e7 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -2055,12 +2055,18 @@ man:
+@@ -2051,12 +2051,18 @@ man:
  html:
  	$(MAKE) -C Documentation html
  
@@ -97,7 +97,7 @@ index ba8e243..146eaaf 100644
  XGETTEXT_FLAGS = \
  	--force-po \
  	--add-comments \
-@@ -2373,6 +2379,9 @@ install-info:
+@@ -2369,6 +2375,9 @@ install-info:
  install-pdf:
  	$(MAKE) -C Documentation install-pdf
  

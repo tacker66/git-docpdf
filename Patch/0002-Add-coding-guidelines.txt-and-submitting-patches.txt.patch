@@ -1,4 +1,4 @@
-From 8206d6d93a2a4bf867554bacdfed935b59686b7e Mon Sep 17 00:00:00 2001
+From b2440a0d2616d1447a6898a77fe35e38c0433bf9 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 27 Dec 2012 14:39:20 +0100
 Subject: [PATCH] Add coding-guidelines.txt and submitting-patches.txt to

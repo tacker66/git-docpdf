@@ -1,4 +1,4 @@
-From e9bb30f0e6cbbddc8b9a88358081f293515a32ad Mon Sep 17 00:00:00 2001
+From be3a044b341a0b869f8ebe68f99b32635b840ba5 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 6 Feb 2013 20:17:27 +0100
 Subject: [PATCH] Convert install.txt and readme.txt to asciidoc

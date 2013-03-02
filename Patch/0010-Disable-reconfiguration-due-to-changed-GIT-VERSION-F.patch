@@ -1,0 +1,25 @@
+From 5e6a34fd0b52fa3ce6f7e6a16dda5abd0bd76010 Mon Sep 17 00:00:00 2001
+From: Thomas Ackermann <th.acker@arcor.de>
+Date: Sat, 2 Mar 2013 09:55:01 +0100
+Subject: [PATCH] Disable reconfiguration due to changed GIT-VERSION-FILE
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index b2689e7..04d03c1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1821,7 +1821,7 @@ CONFIGURE_RECIPE = $(RM) configure configure.ac+ && \
+ 		   autoconf -o configure configure.ac+ && \
+ 		   $(RM) configure.ac+
+ 
+-configure: configure.ac GIT-VERSION-FILE
++configure: configure.ac
+ 	$(QUIET_GEN)$(CONFIGURE_RECIPE)
+ 
+ ifdef AUTOCONFIGURED
+-- 
+1.8.1.msysgit.1
+

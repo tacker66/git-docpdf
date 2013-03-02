@@ -1,4 +1,4 @@
-From c5f03dceca21e2c555d03ef6b3244a28e92682be Mon Sep 17 00:00:00 2001
+From 6d0039e3c31579e9216406a380e8e5c1f1fcdb15 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Thu, 27 Dec 2012 14:58:47 +0100
 Subject: [PATCH] Convert coding-guideline.txt and submitting-patches.txt to

@@ -1,4 +1,4 @@
-From 085277174edbabc4ea00319cfb5692fc7ae09ab6 Mon Sep 17 00:00:00 2001
+From 43bf292abef006e3bde4ffb2a995f79d14596053 Mon Sep 17 00:00:00 2001
 From: Thomas Ackermann <th.acker@arcor.de>
 Date: Wed, 6 Feb 2013 19:44:50 +0100
 Subject: [PATCH] Add readme.txt and install.txt to ./Documentation/Makefile
